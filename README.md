@@ -40,9 +40,20 @@ In your AWS Console you can see 2 running instances:
 The public server will function as a jumb server, requests for the private instance will first reach the public server and the public server will connect to the private server.
 
 - transfer your generated key to the public server:
+
  `scp -i newSSHkey.pem newSSHkey.pem ubuntu@<IP-wordpress>:~/`
+ 
 - ssh to the public server:
+
  `ssh -i newSSHkey.pem ubuntu@<IP-wordpress>`
+ 
 - ssh to the private server:
+
  `chmod 400 newSSHkey.pem`
+ 
  `ssh -i newSSHkey.pem ubuntu@<IP-mySql>`
+ 
+- You could destroy the enviroment with the command:
+
+`terraform destroy`
+
